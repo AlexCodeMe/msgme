@@ -7,15 +7,13 @@ import { useAuthContext } from './context/auth-context'
 
 function App() {
   const { authUser, isLoading } = useAuthContext()
-  console.log('AUTH USER', authUser)
-
 	if (isLoading) return null
 
   return (
     <div className='p-4 h-screen flex items-center justify-center bg-indigo-800'>
       <Routes>
       <Route path='/' element={authUser ? <Home /> : <Navigate to={"/login"} />} />
-				<Route path='/signup' element={!authUser ? <Register /> : <Navigate to={"/"} />} />
+				<Route path='/register' element={!authUser ? <Register /> : <Navigate to={"/"} />} />
 				<Route path='/login' element={!authUser ? <Login /> : <Navigate to={"/"} />} />
 			</Routes>
       <Toaster />
