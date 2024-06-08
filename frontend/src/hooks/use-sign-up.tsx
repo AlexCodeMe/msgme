@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { useAuthContext } from '../context/auth-context'
 import toast from 'react-hot-toast'
 
