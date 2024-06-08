@@ -1,3 +1,4 @@
+import { useSocketContext } from "../../context/socket-context"
 import useConversation from "../../zustand/use-conversation"
 
 type Props = {
@@ -9,8 +10,9 @@ export default function Conversation({ conversation, emoji }: Props) {
 	const { setSelectedConversation, selectedConversation } = useConversation()
 
 	const isSelected = selectedConversation?.id === conversation.id
-//TODO: SocketIO
-	const isOnline = false
+
+	const { onlineUsers } = useSocketContext()
+	const isOnline = onlineUsers.includes(conversation.id)
 
 	return (
 		<>
